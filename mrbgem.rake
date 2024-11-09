@@ -18,6 +18,8 @@ MRuby::Gem::Specification.new('mruby-compiler2') do |spec|
     cc.defines << "MRC_INT64"
   end
   if cc.defines.any? { _1.match?(/\APICORUBY_DEBUG(=|\z)/) || _1.match?(/\AMRB_DEBUG(=|\z)/) }
+    cc.defines << "MRC_DEBUG"
+  end
 
   if cc.defines.include? "MRC_CUSTOM_ALLOC"
     cc.defines << "PRISM_XALLOCATOR"
